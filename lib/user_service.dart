@@ -8,8 +8,8 @@ class UserService {
 
   UserService({required this.repository});
 
-  createUser(User user) {
-    repository.createUser(user).then((value) => print("j'ai un succès"));
+  Future<void> createUser(User user) async {
+    return await repository.createUser(user);
   }
 }
 

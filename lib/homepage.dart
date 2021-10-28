@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:octo_meet/question_page.dart';
 import 'package:octo_meet/user.dart';
 import 'package:octo_meet/user_service.dart';
 
@@ -57,10 +58,15 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: ElevatedButton(
                           onPressed: () {
-                            UserService(repository: UserRepository()).createUser(User(
+                            UserService(repository: UserRepository())
+                                .createUser(User(
                                 nom: nomController.text,
                                 prenom: prenomController.text,
-                                polygramme: polygrammeController.text));
+                                polygramme: polygrammeController.text))
+                                .then((value) {
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => QuestionPage()));
+                            });
                           }, child: const Text("Valider")),
                     )
                   ],
