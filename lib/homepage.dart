@@ -12,6 +12,7 @@ class _HomePageState extends State<HomePage> {
   late TextEditingController polygrammeController;
   late TextEditingController nomController;
   late TextEditingController prenomController;
+  GlobalKey<FormState> globalKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -42,13 +43,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                     TextFormField(
                       controller: prenomController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: UnderlineInputBorder(),
                           labelText: 'Ton prénom'),
                     ),
                     TextFormField(
                       controller: polygrammeController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: UnderlineInputBorder(),
                           labelText: 'Ton polygramme *'),
                     ),
